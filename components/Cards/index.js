@@ -64,5 +64,5 @@ axios
 	})
 	.catch((error) => {
 		//handle error
-		console.log(error);
+		console.log('Oopsies: ', error);
 	});
