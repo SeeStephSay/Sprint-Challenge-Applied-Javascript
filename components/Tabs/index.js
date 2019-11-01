@@ -17,11 +17,18 @@ function Tab(topic) {
 	return tab;
 }
 
+const topics = document.querySelector('.topics');
+
 axios
 	.get('https://lambda-times-backend.herokuapp.com/topics')
 	.then((response) => {
 		//handle success
-		console.log(response);
+    console.log(response);
+    //iterate over topics, append Tab element to DOM under .topics element
+    const responseTopics = response.data.topics;
+    responseTopics.forEach(topic => {
+      topics.appendChild(Tab(topic));
+    });
 	})
 	.catch((error) => {
 		//handle error
