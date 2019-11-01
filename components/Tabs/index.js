@@ -8,14 +8,22 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
+function Tab(topic) {
+	const tab = document.createElement('div');
+
+	tab.classList.add('tab');
+	tab.textContent = topic;
+
+	return tab;
+}
+
 axios
-  .get("https://lambda-times-backend.herokuapp.com/topics");
-  .then(response => {
-    //handle success
-    console.log(response);
-    
-  })
-  .catch (error => {
-    //handle error
-    console.log("Oopsies: ", error);
-  });
+	.get('https://lambda-times-backend.herokuapp.com/topics')
+	.then((response) => {
+		//handle success
+		console.log(response);
+	})
+	.catch((error) => {
+		//handle error
+		console.log('Oopsies: ', error);
+	});
