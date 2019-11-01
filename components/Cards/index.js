@@ -21,8 +21,30 @@ import Axios from 'axios';
 // Create a card for each of the articles and add the card to the DOM.
 
 function Card(article) {
-  const card = document.createElement("div"),
-  
+	const card = document.createElement('div'),
+		headline = document.createElement('div'),
+		author = document.createElement('div'),
+		imgContainer = document.createElement('div'),
+		authorImg = document.createElement('img'),
+		authorName = document.createElement('span');
+
+	card.classList.add('card');
+	headline.classList.add('headline');
+	author.classList.add('author');
+	imgContainer.classList.add('img-container');
+
+	authorImg.src = article.authorPhoto;
+	headline.textContent = article.headline;
+	authorName.textContent = `Written by ${article.authorName}`;
+
+	imgContainer.appendChild(authorImg);
+	author.appendChild(imgContainer);
+	author.appendChild(authorName);
+
+	card.appendChild(headline);
+	card.appendChild(author);
+
+	return card;
 }
 
 const cards = document.querySelector('.cards-container');
@@ -36,7 +58,7 @@ axios
 
 		Object.values(responseArticles).forEach((articles) => {
 			articles.forEach((article) => {
-				SVGPathSegCurvetoQuadraticSmoothAbs.appendChild(Card(article));
+				cards.appendChild(Card(article));
 			});
 		});
 	})
