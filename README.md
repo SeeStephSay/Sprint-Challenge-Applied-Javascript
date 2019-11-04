@@ -30,13 +30,24 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+DOM stands for the Document Object Model. The browser creates it as a representation of the website's HTML document. It's considered "live," because as it is modified, the page changes along with it. The DOM is technically language-agnostic, which means that it can be modified with any programming language, not just JavaScript. It's structured like a tree, where each nested element is referred to as a Node, and each node can have its own nested child nodes (children), and then the children can have children, and it can cascade down like this. The node structure is directly correlated to how the HTML document itself is nested. 
+
 2. What is an event?
+
+An event is something that happens inside a browser, like a change of state (i.e. the page has finished loading), or a basic user interaction, like them scrolling down a page, or hovering over an image. 
 
 3. What is an event listener?
 
+An event listener "addEventListener()" is a method that we set to respond somehow when an event happens. For example, we can set an event listener to play a loading animation, and another to stop it when the page is finished loading. If a user scrolls down a page, or hovers over an image, we could set a drop-shadow behind the page text and images. 
+
 4. Why would we convert a NodeList into an Array?
 
+Since a NodeList is only an array-like object, we would want to use the method "Array.from(NodeList)" to create an array out of its data. This way, we have access to all the built-in array methods (.map, .reduce, etc...) we need to be able to parse our data like we want. 
+
 5. What is a component?
+
+Components are similar to functions, in that they are reusable chunks of code, however, components contain HTML, CSS, and JavaScript. We use them to build elements that share functionality and styling, so that we don't have to write the same code with minor differences over and over again. This helps to keep our code DRY, by building styles that don't rely on other elements on the page (so they could be moved at any time, for example), and don't cross over into another component's territory. 
+
 
 ### Git Set up
 
